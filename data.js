@@ -1,0 +1,3 @@
+var carData = {
+  direction: ""
+};
