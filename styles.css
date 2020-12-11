@@ -2,6 +2,13 @@ body {
   background-color: #78a1bb;
 }
 
-.car {
+.car,
+.north,
+.south,
+.west {
   width: 10%;
+}
+
+.north {
+  transform: rotate(270deg);
 }
