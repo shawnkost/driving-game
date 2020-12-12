@@ -3,6 +3,9 @@ body {
 }
 
 .car {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 10%;
 }
 

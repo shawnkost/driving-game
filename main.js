@@ -1,7 +1,10 @@
-
 var $car = document.querySelector('.car');
 var carData = {
-  direction: 'east'
+  direction: 'east',
+  location: {
+    x: 0,
+    y: 0
+  }
 };
 
 document.addEventListener('keydown', function (event) {
@@ -15,5 +18,13 @@ document.addEventListener('keydown', function (event) {
   } else if (event.key === 'ArrowLeft') {
     carData.direction = 'west';
   }
+
   $car.setAttribute('class', 'car ' + carData.direction);
+
+  if (event.key === ' ') {
+    setInterval(function () {
+      carData.location.x += 3;
+      $car.style.left = carData.location.x + 'px';
+    }, 16);
+  }
 });
