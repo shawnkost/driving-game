@@ -8,6 +8,9 @@ var carData = {
   driving: false
 };
 
+var intervalID = null;
+
+
 document.addEventListener('keydown', function (event) {
 
   if (event.key === 'ArrowUp') {
@@ -22,11 +25,15 @@ document.addEventListener('keydown', function (event) {
 
   $car.setAttribute('class', 'car ' + carData.direction);
 
-  if (event.key === ' ') {
-    setInterval(function () {
+  if (event.key === ' ' && carData.driving === false) {
+    var intervalID = setInterval(function () {
       carData.location.x += 3;
       $car.style.left = carData.location.x + 'px';
       carData.driving = true;
     }, 16);
+  }
+  if (event.key === " " && carData.driving === true) {
+    clearInterval(intervalID);
+    carData.driving = false;
   }
 });
