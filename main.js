@@ -26,6 +26,7 @@ document.addEventListener('keydown', function (event) {
     setInterval(function () {
       carData.location.x += 3;
       $car.style.left = carData.location.x + 'px';
+      carData.driving = true;
     }, 16);
   }
 });
