@@ -1,11 +1,11 @@
-
 var $car = document.querySelector('.car');
 var carData = {
   direction: 'east',
-  location: ['', '']
+  location: {
+    x: 0,
+    y: 0
+  }
 };
-var leftValue = '';
-var pIndex = '';
 
 document.addEventListener('keydown', function (event) {
 
@@ -22,18 +22,9 @@ document.addEventListener('keydown', function (event) {
   $car.setAttribute('class', 'car ' + carData.direction);
 
   if (event.key === ' ') {
-
-    leftValue = $car.style.left;
-    pIndex = leftValue.indexOf('p');
-
-    leftValue.substring(0, pIndex);
-    var leftNumber = Number(leftValue);
-
     setInterval(function () {
-      leftNumber += 3;
-      $car.style.left = leftNumber + 'px';
-      carData.location[0] = $car.style.left;
-      carData.location[1] = $car.style.top;
+      carData.location.x += 3;
+      $car.style.left = carData.location.x + 'px';
     }, 16);
   }
 });
