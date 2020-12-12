@@ -26,10 +26,20 @@ document.addEventListener('keydown', function (event) {
 
   if (event.key === ' ' && carData.driving === false) {
     intervalID = setInterval(function () {
-      carData.location.x += 3;
+      if (carData.direction === 'north') {
+        carData.location.y -= 4;
+      } else if (carData.direction === 'east') {
+        carData.location.x += 4;
+      } else if (carData.direction === 'south') {
+        carData.location.y += 4;
+      } else if (carData.direction === 'west') {
+        carData.location.x -= 4;
+      }
       $car.style.left = carData.location.x + 'px';
+      $car.style.top = carData.location.y + 'px';
       carData.driving = true;
-    }, 16);
+    }, 8);
+
   } else if (event.key === ' ' && carData.driving === true) {
     clearInterval(intervalID);
     carData.driving = false;
