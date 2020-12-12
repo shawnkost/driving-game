@@ -4,7 +4,8 @@ var carData = {
   location: {
     x: 0,
     y: 0
-  }
+  },
+  driving: false
 };
 
 document.addEventListener('keydown', function (event) {
