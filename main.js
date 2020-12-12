@@ -32,6 +32,8 @@ document.addEventListener('keydown', function (event) {
     setInterval(function () {
       leftNumber += 3;
       $car.style.left = leftNumber + 'px';
+      carData.location[0] = $car.style.left;
+      carData.location[1] = $car.style.top;
     }, 16);
   }
 });
